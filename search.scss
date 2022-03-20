@@ -105,7 +105,8 @@ div.engine-select-box.active {
         border: 1px solid $base-line-color;
         border-left: 0;
         border-right: 0;
-        padding: 0px 10px;
+        border-radius: 0;
+        padding: 0px 0.8rem;
         font-size: 0.8rem;
 
         &:focus {
@@ -130,11 +131,24 @@ div.engine-select-box.active {
 
 // 响应式样式
 @media screen and (max-width:800px) {
+    $phone-search-height:2.8rem;
+
     .search-box {
         width: 90%;
+        top: 42%;
     }
 
     .content {
         width: 100%;
+        height: $phone-search-height;
     }
+    
+    // 引擎选择
+    .engine-select {
+        line-height: $phone-search-height;
+    }
+    
+    div.engine-select-box {
+        top: 60%;
+    }    
 }
