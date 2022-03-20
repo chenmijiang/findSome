@@ -1,0 +1,140 @@
+$base-font-color:#5b5b5b;
+$base-line-color:#5b5b5b;
+$base-search-height:1.8rem;
+$base-button-active:#f3f3f3;
+
+:root {
+    font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+// 字体样式设置
+#search,
+.engine-select,
+.header-detail,
+.engine-item {
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 0.7rem;
+    font-family: monospace;
+    color: $base-font-color;
+}
+
+.search-box {
+    width: 64%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 1rem;
+
+    .header-detail {
+        font-size: 1.5rem;
+    }
+}
+
+.content {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    height: $base-search-height;
+}
+
+// 引擎选择
+.engine-select {
+    border: 1px solid $base-line-color;
+    border-radius: 60px 0 0 60px;
+    background-color: #fff;
+    padding: 0 1rem;
+    line-height: $base-search-height;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $base-button-active;
+    }
+}
+
+div.engine-select-box {
+    $select-box-height: 60px;
+    width: 300px;
+    height: $select-box-height;
+    border: 1px solid $base-line-color;
+    border-radius: 12px;
+    background-color: #fff;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: none;
+
+    .engine-select-content {
+        display: flex;
+        line-height: $select-box-height;
+        height: 100%;
+    }
+
+    .engine-item {
+        margin: 0 10px;
+        cursor: pointer;
+    }
+}
+
+div.engine-select-box.active {
+    display: block;
+}
+
+// 输入框样式
+.input {
+    flex: 1;
+
+    #input-content {
+        width: 100%;
+        height: 100%;
+
+        border: 1px solid $base-line-color;
+        border-left: 0;
+        border-right: 0;
+        padding: 0px 10px;
+        font-size: 0.8rem;
+
+        &:focus {
+            outline: 0;
+        }
+    }
+}
+
+// 按钮样式
+#search {
+    border: 1px solid $base-line-color;
+    padding: 0px 1rem 0;
+    border-radius: 0px 60px 60px 0px;
+    background-color: #fff;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $base-button-active;
+    }
+}
+
+
+// 响应式样式
+@media screen and (max-width:800px) {
+    .search-box {
+        width: 90%;
+    }
+
+    .content {
+        width: 100%;
+    }
+}

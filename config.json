@@ -1,0 +1,18 @@
+{
+    "header-detail": "晨米搜索",
+    "engine": [
+        {
+            "name": "谷歌",
+            "value": 1
+        },
+        {
+            "name": "必应",
+            "value": 2
+        },
+        {
+            "name": "百度",
+            "value": 3
+        }
+    ],
+    "version": "0.1"
+}
