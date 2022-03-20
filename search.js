@@ -25,7 +25,19 @@
 
     // 搜索
     let searchBtn = document.getElementById('search');
-    searchBtn.addEventListener('click', function () {
+    searchBtn.addEventListener('click', searchEvent);
+
+    //监听回车键
+    document.onkeyup = function (e) {
+        // 兼容FF和IE和Opera
+        var event = e || window.event;
+        var key = event.which || event.keyCode || event.charCode;
+        if (key == 13) {
+            searchEvent();
+        }
+    };
+
+    function searchEvent() {
         let word = document.getElementById('input-content').value.trim();
         if (word) {
             let key = document.querySelector('.engine-select').getAttribute('data-value');
@@ -36,7 +48,7 @@
             //搜索跳转
             window.location.href = searchURL;
         }
-    })
+    }
 
     //引擎选择
     let select = document.getElementsByClassName('engine-select')[0];
