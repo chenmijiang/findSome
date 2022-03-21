@@ -40,14 +40,27 @@
     function searchEvent() {
         let word = document.getElementById('input-content').value.trim();
         if (word) {
+            //设置搜索过滤
+            word = filterWord(word);
+
             let key = document.querySelector('.engine-select').getAttribute('data-value');
             let baseURL = engineCheck(key);
             let searchURL = baseURL + word;
-            //设置搜索过滤
 
             //搜索跳转
             window.location.href = searchURL;
         }
+    }
+
+    /**
+     * 搜索词过滤
+     * @param {*} word 
+     * @returns 
+     */
+    function filterWord(word) {
+        // 去除关键词中的空格
+        word = word.replace(' ', '+');
+        return word;
     }
 
     //引擎选择
