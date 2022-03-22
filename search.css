@@ -20,16 +20,12 @@ body.dark {
   color: #fff;
 }
 
-.dark .sidebar-themeContainer {
-  background-color: #131c31;
-}
-
 .dark .sidebar-themeContainer .sidebar-themeLabel {
-  background-color: #00071d;
+  background-color: #131c31;
 }
 
 .dark .sidebar-themeContainer .sidebar-themeLabel::before {
-  background-color: #131c31;
+  background-color: #00071d;
   left: 50%;
 }
 
@@ -65,7 +61,7 @@ body {
 .sidebar-themeContainer {
   width: 180px;
   height: 60px;
-  background-color: #fff;
+  background-color: #0000;
   font-size: 0.6rem;
   border-radius: 6px;
   position: absolute;

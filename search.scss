@@ -32,14 +32,14 @@ body.dark {
 }
 
 .dark .sidebar-themeContainer {
-    background-color: $dark-box-bg;
+    // background-color: $dark-body-bg;
 
     .sidebar-themeLabel {
-        background-color: $dark-body-bg;
+        background-color: $dark-box-bg;
 
         //切换滑块
         &::before {
-            background-color: $dark-box-bg;
+            background-color: $dark-body-bg;
             left: 50%;
         }
     }
@@ -82,7 +82,7 @@ body {
     $theme-box-radius: 6px;
     width: 180px;
     height: 60px;
-    background-color: $base-box-bg;
+    background-color: #0000;
     font-size: 0.6rem;
     border-radius: $theme-box-radius;
     position: absolute;
