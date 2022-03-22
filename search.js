@@ -23,33 +23,6 @@
         }
     }
 
-    /**
-     * 页面显示本地保存的配置
-     * @param {*} options 
-     */
-    function showAll(options) {
-        showTheme(options);
-        showEngine(options);
-    }
-
-    /**
-     * 显示选择的引擎
-     * @param {*} options 
-     */
-    function showEngine(options) {
-        let select = document.getElementsByClassName('engine-select')[0];
-        select.setAttribute("data-value", options.value);
-        select.innerHTML = options.name;
-    }
-
-    /**
-     * 显示选择的主题
-     * @param {*} options 
-     */
-    function showTheme(options) {
-        options.theme ? document.body.classList.add('dark') : 1;
-    }
-
     // 搜索
     let searchBtn = document.getElementById('search');
     searchBtn.addEventListener('click', searchEvent);
@@ -128,13 +101,15 @@
         value,
         theme
     }) {
+        let config = getConfig();
         if (name && value) {
-            localStorage.setItem('name', name);
-            localStorage.setItem('value', value);
+            config.name = name;
+            config.value = value;
         }
         if (theme !== undefined) {
-            localStorage.setItem('theme', theme);
+            config.theme = theme;
         }
+        localStorage.setItem('config', JSON.stringify(config));
     }
 
     /**
@@ -142,14 +117,8 @@
      * @returns 
      */
     function getConfig() {
-        let name = localStorage.getItem('name');
-        let value = localStorage.getItem('value');
-        let theme = localStorage.getItem('theme');
-        return {
-            name,
-            value,
-            theme
-        };
+        let config = JSON.parse(localStorage.getItem('config'))
+        return config;
     }
 
     /**
@@ -180,4 +149,31 @@
             theme: this.checked
         })
     })
+
+    /**
+     * 页面显示本地保存的配置
+     * @param {*} options 
+     */
+    function showAll(options) {
+        showTheme(options);
+        showEngine(options);
+    }
+
+    /**
+     * 显示选择的引擎
+     * @param {*} options 
+     */
+    function showEngine(options) {
+        let select = document.getElementsByClassName('engine-select')[0];
+        select.setAttribute("data-value", options.value);
+        select.innerHTML = options.name;
+    }
+
+    /**
+     * 显示选择的主题
+     * @param {*} options 
+     */
+    function showTheme(options) {
+        options.theme == true ? document.body.classList.add('dark') : 1;
+    }
 })()
