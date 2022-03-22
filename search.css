@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   font-size: -webkit-calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
   font-size: -moz-calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
@@ -11,15 +12,137 @@
        box-sizing: border-box;
 }
 
+/*
+    夜晚样式
+*/
+body.dark {
+  background-color: #00071d;
+  color: #fff;
+}
+
+.dark .sidebar-themeContainer {
+  background-color: #131c31;
+}
+
+.dark .sidebar-themeContainer .sidebar-themeLabel {
+  background-color: #00071d;
+}
+
+.dark .sidebar-themeContainer .sidebar-themeLabel::before {
+  background-color: #131c31;
+  left: 50%;
+}
+
+.dark .content {
+  background-color: #131c31;
+  border-color: #5b5b5b;
+}
+
+.dark .engine-select:hover {
+  background-color: #1d2a48;
+}
+
+.dark div.engine-select-box {
+  background-color: #131c31;
+}
+
+.dark #search:hover {
+  background-color: #1d2a48;
+}
+
+/*
+    白天样式
+*/
+body {
+  background-color: #fff;
+  color: #5b5b5b;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.sidebar-themeContainer {
+  width: 180px;
+  height: 60px;
+  background-color: #fff;
+  font-size: 0.6rem;
+  border-radius: 6px;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  padding: 5px;
+  line-height: 50px;
+}
+
+.sidebar-themeContainer .sidebar-themeLabel {
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #f3f3f3;
+  border-radius: 6px;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  position: relative;
+}
+
+.sidebar-themeContainer .sidebar-themeLabel::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  display: inline-block;
+  width: -webkit-calc(50% - 2px);
+  width: -moz-calc(50% - 2px);
+  width: calc(50% - 2px);
+  height: -webkit-calc(100% - 5px);
+  height: -moz-calc(100% - 5px);
+  height: calc(100% - 5px);
+  border-radius: 6px;
+  background-color: #fff;
+  left: 2px;
+  top: 50%;
+  -webkit-transform: translatey(-50%);
+     -moz-transform: translatey(-50%);
+      -ms-transform: translatey(-50%);
+       -o-transform: translatey(-50%);
+          transform: translatey(-50%);
+  -webkit-transition: left 0.3s ease;
+  -o-transition: left 0.3s ease;
+  -moz-transition: left 0.3s ease;
+  transition: left 0.3s ease;
+}
+
+.sidebar-themeContainer .sidebar-themeInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.sidebar-themeContainer .sidebar-themeType {
+  z-index: 10;
+  cursor: pointer;
+}
+
+.sidebar-themeContainer .sidebar-listIcon {
+  float: left;
+  margin: 12px 5px;
+}
+
 #search,
 .engine-select,
 .header-detail,
-.engine-item {
+.engine-item,
+.sidebar-themeContainer {
   font-style: normal;
   font-weight: bolder;
   font-size: 0.7rem;
   font-family: monospace;
-  color: #5b5b5b;
+  color: inherit;
 }
 
 .search-box {
@@ -33,6 +156,11 @@
        -o-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.content {
+  background-color: #fff;
+  border-radius: 60px;
 }
 
 .header {
@@ -56,7 +184,7 @@
 .engine-select {
   border: 1px solid #5b5b5b;
   border-radius: 60px 0 0 60px;
-  background-color: #fff;
+  background-color: inherit;
   padding: 0 1rem;
   line-height: 1.8rem;
   cursor: pointer;
@@ -117,6 +245,8 @@ div.engine-select-box.active {
   border-radius: 0;
   padding: 0px 0.8rem;
   font-size: 0.8rem;
+  color: inherit;
+  background-color: inherit;
 }
 
 .input #input-content:focus {
@@ -127,7 +257,7 @@ div.engine-select-box.active {
   border: 1px solid #5b5b5b;
   padding: 0px 1rem 0;
   border-radius: 0px 60px 60px 0px;
-  background-color: #fff;
+  background-color: inherit;
   cursor: pointer;
 }
 
@@ -149,5 +279,20 @@ div.engine-select-box.active {
   }
   div.engine-select-box {
     top: 60%;
+  }
+  .sidebar-themeContainer {
+    width: 7rem;
+    height: 3rem;
+    font-size: 0.6rem;
+    top: 1rem;
+    right: 1rem;
+    line-height: 3rem;
+  }
+  .sidebar-themeContainer .sidebar-themeInputText {
+    display: none;
+  }
+  .sidebar-themeContainer .sidebar-listIcon {
+    float: left;
+    margin: 0.5rem 1rem;
   }
 }

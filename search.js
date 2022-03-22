@@ -19,8 +19,35 @@
         if (localStorage.length) {
             //加载本地存储
             let options = getConfig();
-            showEngine(options);
+            showAll(options);
         }
+    }
+
+    /**
+     * 页面显示本地保存的配置
+     * @param {*} options 
+     */
+    function showAll(options) {
+        showTheme(options);
+        showEngine(options);
+    }
+
+    /**
+     * 显示选择的引擎
+     * @param {*} options 
+     */
+    function showEngine(options) {
+        let select = document.getElementsByClassName('engine-select')[0];
+        select.setAttribute("data-value", options.value);
+        select.innerHTML = options.name;
+    }
+
+    /**
+     * 显示选择的主题
+     * @param {*} options 
+     */
+    function showTheme(options) {
+        options.theme ? document.body.classList.add('dark') : 1;
     }
 
     // 搜索
@@ -93,35 +120,35 @@
     })
 
     /**
-     * 显示选择的引擎
+     * 本地保存
      * @param {*} options 
      */
-    function showEngine(options) {
-        let select = document.getElementsByClassName('engine-select')[0];
-        select.setAttribute("data-value", options.value);
-        select.innerHTML = options.name;
-    }
-
-
-    /**
-     * 本地保存引擎选择
-     * @param {*} options 
-     */
-    function saveConfig(options) {
-        localStorage.setItem('name', options.name);
-        localStorage.setItem('value', options.value);
+    function saveConfig({
+        name,
+        value,
+        theme
+    }) {
+        if (name && value) {
+            localStorage.setItem('name', name);
+            localStorage.setItem('value', value);
+        }
+        if (theme !== undefined) {
+            localStorage.setItem('theme', theme);
+        }
     }
 
     /**
-     * 获取本地引擎选择
+     * 本地获取
      * @returns 
      */
     function getConfig() {
         let name = localStorage.getItem('name');
         let value = localStorage.getItem('value');
+        let theme = localStorage.getItem('theme');
         return {
             name,
-            value
+            value,
+            theme
         };
     }
 
@@ -142,4 +169,15 @@
             return "https://www.google.com/search?q=";
         }
     }
+
+    /**
+     * 主题切换
+     */
+    let themeToggle = document.querySelector('#theme-toggle');
+    themeToggle.addEventListener('change', function () {
+        document.body.classList.toggle('dark');
+        saveConfig({
+            theme: this.checked
+        })
+    })
 })()

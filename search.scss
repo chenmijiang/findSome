@@ -1,7 +1,17 @@
+//白天
+$base-body-bg:#fff;
 $base-font-color:#5b5b5b;
 $base-line-color:#5b5b5b;
 $base-search-height:1.8rem;
+$base-box-bg:#fff;
 $base-button-active:#f3f3f3;
+
+//夜晚
+$dark-body-bg:#00071d;
+$dark-font-color:#fff;
+$dark-line-color:#5b5b5b;
+$dark-box-bg:#131c31;
+$dark-button-active:#1d2a48;
 
 :root {
     font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
@@ -13,16 +23,129 @@ $base-button-active:#f3f3f3;
     box-sizing: border-box;
 }
 
+/*
+    夜晚样式
+*/
+body.dark {
+    background-color: $dark-body-bg;
+    color: $dark-font-color;
+}
+
+.dark .sidebar-themeContainer {
+    background-color: $dark-box-bg;
+
+    .sidebar-themeLabel {
+        background-color: $dark-body-bg;
+
+        //切换滑块
+        &::before {
+            background-color: $dark-box-bg;
+            left: 50%;
+        }
+    }
+}
+
+.dark .content {
+    background-color: $dark-box-bg;
+    border-color: $dark-line-color;
+}
+
+.dark .engine-select {
+    &:hover {
+        background-color: $dark-button-active;
+    }
+}
+
+.dark div.engine-select-box {
+    background-color: $dark-box-bg;
+}
+
+.dark #search {
+    &:hover {
+        background-color: $dark-button-active;
+    }
+}
+
+
+/*
+    白天样式
+*/
+
+body {
+    background-color: $base-body-bg;
+    color: $base-font-color;
+    transition: all 0.3s ease;
+}
+
+//主题切换
+.sidebar-themeContainer {
+    $theme-box-radius: 6px;
+    width: 180px;
+    height: 60px;
+    background-color: $base-box-bg;
+    font-size: 0.6rem;
+    border-radius: $theme-box-radius;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    padding: 5px;
+    line-height: 50px;
+
+    .sidebar-themeLabel {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background-color: $base-button-active;
+        border-radius: $theme-box-radius;
+        justify-content: space-around;
+        position: relative;
+
+        //切换滑块
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            display: inline-block;
+            width: calc(50% - 2px);
+            height: calc(100% - 5px);
+            border-radius: $theme-box-radius;
+            background-color: $base-box-bg;
+            left: 2px;
+            top: 50%;
+            transform: translatey(-50%);
+            transition: left 0.3s ease;
+        }
+    }
+
+    .sidebar-themeInput {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        position: absolute;
+    }
+
+    .sidebar-themeType {
+        z-index: 10;
+        cursor: pointer;
+    }
+
+    .sidebar-listIcon {
+        float: left;
+        margin: 12px 5px;
+    }
+}
+
 // 字体样式设置
 #search,
 .engine-select,
 .header-detail,
-.engine-item {
+.engine-item,
+.sidebar-themeContainer {
     font-style: normal;
     font-weight: bolder;
     font-size: 0.7rem;
     font-family: monospace;
-    color: $base-font-color;
+    color: inherit;
 }
 
 .search-box {
@@ -32,6 +155,11 @@ $base-button-active:#f3f3f3;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+.content {
+    background-color: $base-box-bg;
+    border-radius: 60px;
 }
 
 .header {
@@ -53,7 +181,7 @@ $base-button-active:#f3f3f3;
 .engine-select {
     border: 1px solid $base-line-color;
     border-radius: 60px 0 0 60px;
-    background-color: #fff;
+    background-color: inherit;
     padding: 0 1rem;
     line-height: $base-search-height;
     cursor: pointer;
@@ -69,7 +197,7 @@ div.engine-select-box {
     height: $select-box-height;
     border: 1px solid $base-line-color;
     border-radius: 12px;
-    background-color: #fff;
+    background-color: $base-box-bg;
 
     position: absolute;
     top: 50%;
@@ -108,6 +236,8 @@ div.engine-select-box.active {
         border-radius: 0;
         padding: 0px 0.8rem;
         font-size: 0.8rem;
+        color: inherit;
+        background-color: inherit;
 
         &:focus {
             outline: 0;
@@ -120,7 +250,7 @@ div.engine-select-box.active {
     border: 1px solid $base-line-color;
     padding: 0px 1rem 0;
     border-radius: 0px 60px 60px 0px;
-    background-color: #fff;
+    background-color: inherit;
     cursor: pointer;
 
     &:hover {
@@ -128,10 +258,9 @@ div.engine-select-box.active {
     }
 }
 
-
 // 响应式样式
 @media screen and (max-width:800px) {
-    $phone-search-height:2.8rem;
+    $phone-search-height: 2.8rem;
 
     .search-box {
         width: 90%;
@@ -142,13 +271,33 @@ div.engine-select-box.active {
         width: 100%;
         height: $phone-search-height;
     }
-    
+
     // 引擎选择
     .engine-select {
         line-height: $phone-search-height;
     }
-    
+
     div.engine-select-box {
         top: 60%;
-    }    
+    }
+
+    //主题切换
+    .sidebar-themeContainer {
+        $theme-box-radius: 6px;
+        width: 7rem;
+        height: 3rem;
+        font-size: 0.6rem;
+        top: 1rem;
+        right: 1rem;
+        line-height: 3rem;
+
+        .sidebar-themeInputText {
+            display: none;
+        }
+    
+        .sidebar-listIcon {
+            float: left;
+            margin: 0.5rem 1rem;
+        }
+    }
 }
