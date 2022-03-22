@@ -101,7 +101,7 @@
         value,
         theme
     }) {
-        let config = getConfig();
+        let config = getConfig() || {};
         if (name && value) {
             config.name = name;
             config.value = value;
@@ -164,9 +164,11 @@
      * @param {*} options 
      */
     function showEngine(options) {
-        let select = document.getElementsByClassName('engine-select')[0];
-        select.setAttribute("data-value", options.value);
-        select.innerHTML = options.name;
+        if (options.value && options.name) {
+            let select = document.getElementsByClassName('engine-select')[0];
+            select.setAttribute("data-value", options.value);
+            select.innerHTML = options.name;
+        }
     }
 
     /**
