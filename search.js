@@ -26,13 +26,22 @@
     // 搜索
     let searchBtn = document.getElementById('search');
     searchBtn.addEventListener('click', searchEvent);
+    let lock = false;
+    let input = document.getElementById('input-content');
+    input.addEventListener('compositionstart', () => {
+        lock = true;
+    })
+    input.addEventListener('compositionend', () => {
+        lock = false;
+    })
 
     //监听回车键
     document.onkeyup = function (e) {
         // 兼容FF和IE和Opera
         var event = e || window.event;
         var key = event.which || event.keyCode || event.charCode;
-        if (key == 13) {
+        // 中文输入时候的bug
+        if (key == 13 && !lock) {
             searchEvent();
         }
     };
