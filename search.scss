@@ -2,7 +2,7 @@
 $base-body-bg:#fff;
 $base-font-color:#5b5b5b;
 $base-line-color:#5b5b5b;
-$base-search-height:1.8rem;
+$base-search-height:46px;
 $base-box-bg:#fff;
 $base-button-active:#f3f3f3;
 
@@ -83,11 +83,10 @@ body {
     width: 180px;
     height: 60px;
     background-color: #0000;
-    font-size: 0.6rem;
     border-radius: $theme-box-radius;
     position: absolute;
-    top: 1rem;
-    right: 2rem;
+    top: 16px;
+    right: 32px;
     padding: 5px;
     line-height: 50px;
 
@@ -143,13 +142,13 @@ body {
 .sidebar-themeContainer {
     font-style: normal;
     font-weight: bolder;
-    font-size: 0.7rem;
+    font-size: 15px;
     font-family: monospace;
     color: inherit;
 }
 
 .search-box {
-    width: 64%;
+    width: 900px;
     position: absolute;
     top: 30%;
     left: 50%;
@@ -163,16 +162,16 @@ body {
 }
 
 .header {
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 
     .header-detail {
-        font-size: 1.5rem;
+        font-size: 32px;
     }
 }
 
 .content {
     display: flex;
-    width: 80%;
+    width: 84%;
     margin: 0 auto;
     height: $base-search-height;
 }
@@ -182,7 +181,7 @@ body {
     border: 1px solid $base-line-color;
     border-radius: 60px 0 0 60px;
     background-color: inherit;
-    padding: 0 1rem;
+    padding: 0 24px;
     line-height: $base-search-height;
     cursor: pointer;
 
@@ -234,8 +233,8 @@ div.engine-select-box.active {
         border-left: 0;
         border-right: 0;
         border-radius: 0;
-        padding: 0px 0.8rem;
-        font-size: 0.8rem;
+        padding: 0px 14px;
+        font-size: 14px;
         color: inherit;
         background-color: inherit;
 
@@ -248,13 +247,19 @@ div.engine-select-box.active {
 // 按钮样式
 #search {
     border: 1px solid $base-line-color;
-    padding: 0px 1rem 0;
+    padding: 0px 24px 0;
     border-radius: 0px 60px 60px 0px;
     background-color: inherit;
     cursor: pointer;
 
     &:hover {
         background-color: $base-button-active;
+    }
+}
+
+@media screen and (max-width:900px) {
+    body {
+        overflow: hidden;
     }
 }
 
