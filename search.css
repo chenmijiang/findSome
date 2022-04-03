@@ -254,11 +254,23 @@ div.engine-select-box.active {
 
 .sugBox {
   display: none;
+  height: 300px;
+  overflow: hidden;
   border: 1px solid #5b5b5b;
   border-top: none;
   -moz-box-sizing: content-box;
        box-sizing: content-box;
   background-color: 46px;
+}
+
+.sugBox .sugs {
+  height: -webkit-calc(100% + 20px);
+  height: -moz-calc(100% + 20px);
+  height: calc(100% + 20px);
+  overflow: scroll;
+  width: -webkit-calc(100% + 20px);
+  width: -moz-calc(100% + 20px);
+  width: calc(100% + 20px);
 }
 
 .sugBox .sug {
@@ -340,6 +352,9 @@ div.engine-select-box.active {
   .input #input-content {
     font-size: 0.7rem;
     padding: 0px 0.7rem;
+  }
+  .sugBox {
+    height: 10rem;
   }
   .sugBox .sug {
     padding: 0.2rem 0.7rem;

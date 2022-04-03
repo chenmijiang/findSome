@@ -180,7 +180,7 @@
                 let length = engines.sugWord.data.length;
                 if (+key === 38) {
                     //监听方向键 ⬆️
-                    --index === -1 ? index = length - 1 : 0;
+                    --index <= -1 ? index = length - 1 : 0;
                     engines.updateSugWord(index);
                     showSelectSug(index, length);
                     return;

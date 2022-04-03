@@ -251,10 +251,19 @@ div.engine-select-box.active {
 //推荐选项
 .sugBox {
     display: none;
+    height: 300px;
+    overflow: hidden;
+
     border: 1px solid $base-line-color;
     border-top: none;
     box-sizing: content-box;
     background-color: $base-search-height;
+
+    .sugs {
+        height: calc(100% + 20px);
+        overflow: scroll;
+        width: calc(100% + 20px);
+    }
 
     .sug {
         list-style: none;
@@ -277,6 +286,7 @@ div.engine-select-box.active {
             background-color: $base-line-color;
         }
     }
+
     .sug.select {
         background-color: $base-button-active;
     }
@@ -341,6 +351,10 @@ div.engine-select-box.active {
     .input #input-content {
         font-size: 0.7rem;
         padding: 0px 0.7rem;
+    }
+
+    .sugBox {
+        height: 10rem;
     }
 
     .sugBox .sug {
