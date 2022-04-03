@@ -324,6 +324,14 @@ div.engine-select-box.active {
   body {
     overflow-x: hidden;
   }
+  .sugBox .sugs {
+    height: -webkit-calc(100% + 0.9rem);
+    height: -moz-calc(100% + 0.9rem);
+    height: calc(100% + 0.9rem);
+    width: -webkit-calc(100% + 1rem);
+    width: -moz-calc(100% + 1rem);
+    width: calc(100% + 1rem);
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -359,12 +367,12 @@ div.engine-select-box.active {
     height: 10rem;
   }
   .sugBox .sugs {
-    height: -webkit-calc(100% + 0.9rem);
-    height: -moz-calc(100% + 0.9rem);
-    height: calc(100% + 0.9rem);
-    width: -webkit-calc(100% + 1rem);
-    width: -moz-calc(100% + 1rem);
-    width: calc(100% + 1rem);
+    height: -webkit-calc(100% + 0.1rem);
+    height: -moz-calc(100% + 0.1rem);
+    height: calc(100% + 0.1rem);
+    width: -webkit-calc(100% + 0.3rem);
+    width: -moz-calc(100% + 0.3rem);
+    width: calc(100% + 0.3rem);
   }
   .sugBox .sug {
     padding: 0.2rem 0.7rem;
