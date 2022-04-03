@@ -329,10 +329,12 @@ div.engine-select-box.active {
 @media screen and (max-width: 800px) {
   #search,
   .engine-select,
-  .header-detail,
   .engine-item,
   .sidebar-themeContainer {
     font-size: 0.8rem;
+  }
+  .header .header-detail {
+    font-size: 1.6rem;
   }
   .search-box {
     width: 90%;

@@ -322,10 +322,13 @@ div.engine-select-box.active {
 
     #search,
     .engine-select,
-    .header-detail,
     .engine-item,
     .sidebar-themeContainer {
         font-size: 0.8rem;
+    }
+
+    .header .header-detail {
+        font-size: 1.6rem;
     }
 
     .search-box {
