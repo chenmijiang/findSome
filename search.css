@@ -29,9 +29,14 @@ body.dark {
   left: 50%;
 }
 
-.dark .content {
+.dark .content,
+.dark .sugBox {
   background-color: #131c31;
   border-color: #5b5b5b;
+}
+
+.dark .sugBox .sug.select {
+  background-color: #00071d;
 }
 
 .dark .engine-select:hover {
@@ -178,6 +183,7 @@ body {
 
 .engine-select {
   border: 1px solid #5b5b5b;
+  border-right: 0;
   border-radius: 60px 0 0 60px;
   background-color: inherit;
   padding: 0 24px;
@@ -235,8 +241,6 @@ div.engine-select-box.active {
   width: 100%;
   height: 100%;
   border: 1px solid #5b5b5b;
-  border-left: 0;
-  border-right: 0;
   border-radius: 0;
   padding: 0px 14px;
   font-size: 14px;
@@ -248,8 +252,52 @@ div.engine-select-box.active {
   outline: 0;
 }
 
+.sugBox {
+  display: none;
+  border: 1px solid #5b5b5b;
+  border-top: none;
+  -moz-box-sizing: content-box;
+       box-sizing: content-box;
+  background-color: 46px;
+}
+
+.sugBox .sug {
+  list-style: none;
+  position: relative;
+  padding: 4px 14px;
+  font-size: 16px;
+  text-align: left;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.sugBox .sug::after {
+  content: '';
+  width: 96%;
+  height: 1px;
+  position: absolute;
+  top: 101%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: #5b5b5b;
+}
+
+.sugBox .sug.select {
+  background-color: #f3f3f3;
+}
+
+.sugBox.active {
+  display: block;
+}
+
 #search {
   border: 1px solid #5b5b5b;
+  border-left: 0;
   padding: 0px 24px 0;
   border-radius: 0px 60px 60px 0px;
   background-color: inherit;
@@ -262,11 +310,18 @@ div.engine-select-box.active {
 
 @media screen and (max-width: 900px) {
   body {
-    overflow: hidden;
+    overflow-x: hidden;
   }
 }
 
 @media screen and (max-width: 800px) {
+  #search,
+  .engine-select,
+  .header-detail,
+  .engine-item,
+  .sidebar-themeContainer {
+    font-size: 0.8rem;
+  }
   .search-box {
     width: 90%;
     top: 42%;
@@ -276,7 +331,20 @@ div.engine-select-box.active {
     height: 2.8rem;
   }
   .engine-select {
+    padding: 0 1rem;
     line-height: 2.8rem;
+  }
+  #search {
+    padding: 0px 1rem;
+  }
+  .input #input-content {
+    font-size: 0.7rem;
+    padding: 0px 0.7rem;
+  }
+  .sugBox .sug {
+    padding: 0.2rem 0.7rem;
+    font-size: 0.8rem;
+    line-height: 1.8rem;
   }
   div.engine-select-box {
     top: 60%;

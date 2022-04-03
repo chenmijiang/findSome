@@ -45,9 +45,14 @@ body.dark {
     }
 }
 
-.dark .content {
+.dark .content,
+.dark .sugBox {
     background-color: $dark-box-bg;
     border-color: $dark-line-color;
+}
+
+.dark .sugBox .sug.select {
+    background-color: $dark-body-bg;
 }
 
 .dark .engine-select {
@@ -179,6 +184,7 @@ body {
 // 引擎选择
 .engine-select {
     border: 1px solid $base-line-color;
+    border-right: 0;
     border-radius: 60px 0 0 60px;
     background-color: inherit;
     padding: 0 24px;
@@ -230,8 +236,6 @@ div.engine-select-box.active {
         height: 100%;
 
         border: 1px solid $base-line-color;
-        border-left: 0;
-        border-right: 0;
         border-radius: 0;
         padding: 0px 14px;
         font-size: 14px;
@@ -244,9 +248,48 @@ div.engine-select-box.active {
     }
 }
 
+//推荐选项
+.sugBox {
+    display: none;
+    border: 1px solid $base-line-color;
+    border-top: none;
+    box-sizing: content-box;
+    background-color: $base-search-height;
+
+    .sug {
+        list-style: none;
+        position: relative;
+        padding: 4px 14px;
+        font-size: 16px;
+        text-align: left;
+        line-height: 32px;
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            width: 96%;
+            height: 1px;
+            position: absolute;
+            top: 101%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            background-color: $base-line-color;
+        }
+    }
+    .sug.select {
+        background-color: $base-button-active;
+    }
+}
+
+.sugBox.active {
+    display: block;
+}
+
 // 按钮样式
 #search {
     border: 1px solid $base-line-color;
+    border-left: 0;
     padding: 0px 24px 0;
     border-radius: 0px 60px 60px 0px;
     background-color: inherit;
@@ -259,13 +302,21 @@ div.engine-select-box.active {
 
 @media screen and (max-width:900px) {
     body {
-        overflow: hidden;
+        overflow-x: hidden;
     }
 }
 
 // 响应式样式
 @media screen and (max-width:800px) {
     $phone-search-height: 2.8rem;
+
+    #search,
+    .engine-select,
+    .header-detail,
+    .engine-item,
+    .sidebar-themeContainer {
+        font-size: 0.8rem;
+    }
 
     .search-box {
         width: 90%;
@@ -279,7 +330,23 @@ div.engine-select-box.active {
 
     // 引擎选择
     .engine-select {
+        padding: 0 1rem;
         line-height: $phone-search-height;
+    }
+
+    #search {
+        padding: 0px 1rem;
+    }
+
+    .input #input-content {
+        font-size: 0.7rem;
+        padding: 0px 0.7rem;
+    }
+
+    .sugBox .sug {
+        padding: 0.2rem 0.7rem;
+        font-size: 0.8rem;
+        line-height: 1.8rem;
     }
 
     div.engine-select-box {
@@ -299,7 +366,7 @@ div.engine-select-box.active {
         .sidebar-themeInputText {
             display: none;
         }
-    
+
         .sidebar-listIcon {
             float: left;
             margin: 0.5rem 1rem;

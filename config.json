@@ -3,16 +3,23 @@
     "engine": [
         {
             "name": "谷歌",
-            "value": 1
+            "value": 0,
+            "url":"https://www.google.com/search?q=",
+            "suggest":"http://suggestqueries.google.com/complete/search?client=youtube&q=#content#&jsonp=window.sug.google"
         },
         {
             "name": "必应",
-            "value": 2
+            "value": 1,
+            "url":"https://cn.bing.com/search?q=",
+            "suggest":"http://api.bing.com/qsonhs.aspx?type=cb&q=#content#&cb=window.sug.bing"
         },
         {
             "name": "百度",
-            "value": 3
+            "value": 2,
+            "url":"https://www.baidu.com/s?wd=",
+            "suggest":"http://suggestion.baidu.com/su?wd=#content#&cb=window.sug.baidu"
         }
     ],
-    "version": "0.2.2"
+    "github":"https://github.com/Your-songs-are-so-good/findSome",
+    "version": "0.3.0"
 }
