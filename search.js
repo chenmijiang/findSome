@@ -246,7 +246,7 @@
                 })
             document.body.appendChild(script);
         } else {
-            showSug(word);
+            showSug([]);
         }
     }
     window.sug = {
@@ -255,7 +255,12 @@
             showSug(data)
         },
         bing: function (result) {
-            let data = result.AS.Results[0].Suggests.map(e => e.Txt);
+            let data;
+            if (!result.AS.FullResults) {
+                data = [];
+            } else {
+                data = result.AS.Results[0].Suggests.map(e => e.Txt);
+            }
             showSug(data)
         },
         baidu: function (result) {
@@ -298,15 +303,15 @@
     }
     /**
      * 显示建议
-     * @param {aray} data 
+     * @param { aray } data 
      * @returns 
      */
     function showSug(data) {
         let sugBox = document.getElementsByClassName('sugBox')[0];
         let classList = sugBox.classList;
-        if (data && !classList.contains('active')) {
+        if (data.length && !classList.contains('active')) {
             classList.add('active');
-        } else if (!data) {
+        } else if (!data.length) {
             classList.contains('active') ? classList.remove('active') : '';
             return;
         }

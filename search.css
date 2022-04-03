@@ -358,6 +358,14 @@ div.engine-select-box.active {
   .sugBox {
     height: 10rem;
   }
+  .sugBox .sugs {
+    height: -webkit-calc(100% + 0.9rem);
+    height: -moz-calc(100% + 0.9rem);
+    height: calc(100% + 0.9rem);
+    width: -webkit-calc(100% + 1rem);
+    width: -moz-calc(100% + 1rem);
+    width: calc(100% + 1rem);
+  }
   .sugBox .sug {
     padding: 0.2rem 0.7rem;
     font-size: 0.8rem;
