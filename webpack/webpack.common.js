@@ -15,14 +15,14 @@ module.exports = {
       {
         test: /\.js$/,
         use: ['babel-loader'],
-        include: __dirname + '/src/',
+        include: path.resolve(__dirname, '..', 'src'),
       },
     ],
   },
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: `${path.join(__dirname,'..', 'public', 'index.html')}`,
+      template: `${path.join(__dirname, '..', 'public', 'index.html')}`,
       filename: 'index.html',
       minify: {
         collapseWhitespace: true,
