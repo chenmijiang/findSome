@@ -25,63 +25,84 @@
   </div>
 </template>
 <script>
+
 </script>
 <style lang="scss" scoped>
 @import "../assets/defineValue";
+@import "../assets/device";
 
 .sidebar-themeContainer {
+  $theme-box-radius: 6px;
+  width: 180px;
+  height: 60px;
+  background-color: #0000;
+  border-radius: $theme-box-radius;
+  position: absolute;
+  top: 16px;
+  right: 32px;
+  padding: 5px;
+  line-height: 50px;
+
+  @include w_ml {
     $theme-box-radius: 6px;
-    width: 180px;
-    height: 60px;
-    background-color: #0000;
+    width: 7rem;
+    height: 3rem;
+    font-size: 0.6rem;
+    top: 1rem;
+    right: 1rem;
+    line-height: 3rem;
+  }
+
+  .sidebar-themeLabel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: $base-button-active;
     border-radius: $theme-box-radius;
+    justify-content: space-around;
+    position: relative;
+
+    //切换滑块
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      display: inline-block;
+      width: calc(50% - 2px);
+      height: calc(100% - 5px);
+      border-radius: $theme-box-radius;
+      background-color: $base-box-bg;
+      left: 2px;
+      top: 50%;
+      transform: translatey(-50%);
+      transition: left 0.3s ease;
+    }
+  }
+
+  .sidebar-themeInput {
+    opacity: 0;
+    width: 0;
+    height: 0;
     position: absolute;
-    top: 16px;
-    right: 32px;
-    padding: 5px;
-    line-height: 50px;
 
-    .sidebar-themeLabel {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        background-color: $base-button-active;
-        border-radius: $theme-box-radius;
-        justify-content: space-around;
-        position: relative;
-
-        //切换滑块
-        &::before {
-            content: "";
-            position: absolute;
-            z-index: 0;
-            display: inline-block;
-            width: calc(50% - 2px);
-            height: calc(100% - 5px);
-            border-radius: $theme-box-radius;
-            background-color: $base-box-bg;
-            left: 2px;
-            top: 50%;
-            transform: translatey(-50%);
-            transition: left 0.3s ease;
-        }
+    @include w_ml {
+      display: none;
     }
+  }
 
-    .sidebar-themeInput {
-        opacity: 0;
-        width: 0;
-        height: 0;
-        position: absolute;
-    }
+  .sidebar-themeType {
+    z-index: 10;
+    cursor: pointer;
+  }
 
-    .sidebar-themeType {
-        z-index: 10;
-        cursor: pointer;
-    }
+  .sidebar-listIcon {
+    float: left;
+    margin: 12px 5px;
 
-    .sidebar-listIcon {
-        float: left;
-        margin: 12px 5px;
+    @include w_ml {
+      float: left;
+      margin: 0.5rem 1rem;
     }
+  }
 }
 </style>
