@@ -1,12 +1,10 @@
-const commonConfig = require('./webpack.common.js');
-const { merge } = require('webpack-merge');
 const path = require('path');
 
-module.exports = merge(commonConfig, {
+module.exports = {
   mode: 'development',
   output: {
     filename: '[name].[hash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname,'..', 'dist'),
   },
   module: {
     rules: [
@@ -26,4 +24,4 @@ module.exports = merge(commonConfig, {
     open: true,
     compress: true,
   },
-});
+};

@@ -1,16 +1,16 @@
 const path = require('path');
-const { VueLoaderPlugin } = require('vue-loader')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: path.join(__dirname, 'src', 'main.js'),
+    index: path.join(__dirname, '..', 'src', 'main.js'),
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
       },
       {
         test: /\.js$/,
@@ -22,7 +22,7 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: `${path.join(__dirname, 'public', 'index.html')}`,
+      template: `${path.join(__dirname,'..', 'public', 'index.html')}`,
       filename: 'index.html',
       minify: {
         collapseWhitespace: true,
