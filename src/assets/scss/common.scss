@@ -1,0 +1,35 @@
+@import "./defaultValue";
+@import './device';
+
+:root {
+  font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// 字体样式设置
+#search,
+.engine-select,
+.header-detail,
+.engine-item,
+.sidebar-themeContainer {
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 15px;
+    font-family: monospace;
+    color: inherit;
+}
+
+/*
+    白天样式
+*/
+
+body {
+  background-color: $base-body-bg;
+  color: $base-font-color;
+  transition: all 0.3s ease;
+}
