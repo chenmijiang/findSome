@@ -18,7 +18,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '..', 'public', 'index.html'),
       filename: 'index.html',
-      favicon:path.join(__dirname, '..', 'public', 'favicon.ico'),
+      favicon: path.join(__dirname, '..', 'public', 'favicon.ico'),
       minify: {
         collapseWhitespace: true,
         keepClosingSlash: true,

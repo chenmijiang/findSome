@@ -1,0 +1,73 @@
+@import "/src/assets/scss/defaultValue";
+@import "/src/assets/scss/device";
+
+$theme-box-radius: 6px;
+
+.sidebar_themeContainer {
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 15px;
+  font-family: monospace;
+  color: inherit;
+}
+
+.sidebar_themeContainer {
+  $theme-box-radius: 6px;
+  width: 180px;
+  height: 60px;
+  background-color: #0000;
+  border-radius: $theme-box-radius;
+  padding: 5px;
+  line-height: 50px;
+  
+  .sidebar_themeLabel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: $base-button-active;
+    border-radius: $theme-box-radius;
+    justify-content: space-around;
+    position: relative;
+    transition:background-color 0.4s;
+    //切换滑块
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      display: inline-block;
+      width: calc(50% - 2px);
+      height: calc(100% - 5px);
+      border-radius: $theme-box-radius;
+      background-color: $base-box-bg;
+      left: 2px;
+      top: 50%;
+      transform: translatey(-50%);
+      transition: left 0.3s ease;
+    }
+  }
+  .sidebar_themeInput {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+  .sidebar_themeType {
+    z-index: 10;
+    cursor: pointer;
+  }
+  .sidebar_listIcon {
+    float: left;
+    margin: 12px 5px;
+  }
+}
+
+.sidebar_themeContainer {
+  .switched {
+      background-color: $dark-box-bg;
+      //切换滑块
+      &::before {
+          background-color: $dark-body-bg;
+          left: 50%;
+      }
+  }
+}

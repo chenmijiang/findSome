@@ -1,0 +1,49 @@
+@import "./defaultValue";
+@import './device';
+
+/*
+    夜晚样式
+*/
+body.dark {
+  background-color: $dark-body-bg;
+  color: $dark-font-color;
+}
+
+.dark .sidebar_themeContainer {
+
+  .sidebar_themeLabel {
+      background-color: $dark-box-bg;
+
+      //切换滑块
+      &::before {
+          background-color: $dark-body-bg;
+          left: 50%;
+      }
+  }
+}
+
+.dark .content,
+.dark .sugBox {
+  background-color: $dark-box-bg;
+  border-color: $dark-line-color;
+}
+
+.dark .sugBox .sug.select {
+  background-color: $dark-body-bg;
+}
+
+.dark .engine_select {
+  &:hover {
+      background-color: $dark-button-active;
+  }
+}
+
+.dark div.engine_select_box {
+  background-color: $dark-box-bg;
+}
+
+.dark #search {
+  &:hover {
+      background-color: $dark-button-active;
+  }
+}
