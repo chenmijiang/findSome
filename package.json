@@ -1,45 +1,32 @@
 {
-  "name": "findsome",
+  "name": "find-some",
   "version": "1.0.0",
-  "description": "个人自制的搜索页面",
-  "main": "main.js",
+  "main": "index.js",
+  "repository": "git@github.com:Your-songs-are-so-good/findSome.git",
+  "author": "nigehaotinga <jack.chenyuana@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --mode development --config webpack.config.js",
-    "build": "webpack --mode production --config webpack.config.js"
+    "dev": "webpack-dev-server --mode=development --config=webpack.config.js",
+    "build": "webpack --mode=production --config=webpack.config.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Your-songs-are-so-good/findSome.git"
-  },
-  "author": "Your-songs-are-so-good",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Your-songs-are-so-good/findSome/issues"
-  },
-  "homepage": "https://github.com/Your-songs-are-so-good/findSome#readme",
   "devDependencies": {
-    "@babel/core": "^7.18.5",
-    "@babel/preset-env": "^7.18.2",
-    "autoprefixer": "^10.4.7",
+    "@babel/core": "^7.19.3",
+    "@babel/preset-react": "^7.18.6",
     "babel-loader": "^8.2.5",
-    "css-loader": "^6.7.1",
-    "css-minimizer-webpack-plugin": "^4.0.0",
-    "html-webpack-plugin": "^5.5.0",
+    "css-minimizer-webpack-plugin": "^4.1.0",
     "mini-css-extract-plugin": "^2.6.1",
-    "node-sass": "^7.0.1",
-    "postcss-loader": "^7.0.0",
-    "sass-loader": "^13.0.0",
-    "terser-webpack-plugin": "^5.3.3",
-    "vue-loader": "^17.0.0",
-    "vue-style-loader": "^4.1.3",
-    "vue-template-compiler": "^2.6.14",
-    "webpack": "^5.73.0",
+    "terser-webpack-plugin": "^5.3.6",
+    "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.9.2",
-    "webpack-merge": "^5.8.0"
+    "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "node-sass": "^7.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1"
   }
 }

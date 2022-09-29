@@ -15,7 +15,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.scss$/,
@@ -23,7 +23,6 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
-          'postcss-loader',
         ],
       },
       {
@@ -55,6 +54,7 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
+        // 拆分第三方模块
         vendor: {
           name: 'vendor',
           priority: 1,
@@ -62,6 +62,7 @@ module.exports = {
           minSize: 0,
           minChunks: 1,
         },
+        // 拆分工具模块
         common: {
           name: 'common',
           test: /[\\/]src[\\/]utils[\\/]/,
