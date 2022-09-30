@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ThemeSwitch from '../mini/ThemeSwitch';
+import ThemeSwitch from './ThemeSwitch';
 
 import Style from './Navbar.module.scss';
 

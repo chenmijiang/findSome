@@ -4,10 +4,10 @@ import './assets/scss/common.scss';
 // 异步引入黑夜主题样式
 import('./assets/scss/darkTheme.scss');
 
-import HomePage from './views/HomePage';
+import Home from './views/Home';
 
 function App(){
-  return <HomePage></HomePage>;
+  return <Home></Home>;
 }
 
 export default App;

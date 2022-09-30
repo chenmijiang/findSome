@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Navbar from '../components/Navbar';
+import Navbar from '/src/components/common/Navbar';
 
 
 export default function () {
