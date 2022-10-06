@@ -9,10 +9,21 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        use: ['babel-loader'],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              cacheCompression: false,
+            },
+          },
+        ],
         include: path.resolve(__dirname, '..', 'src'),
       },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx','.scss'],
   },
   plugins: [
     new HtmlWebpackPlugin({

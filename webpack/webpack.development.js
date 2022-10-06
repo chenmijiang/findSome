@@ -1,9 +1,11 @@
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   output: {
-    filename: '[name].[contenthash8].js',
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
     path: path.resolve(__dirname, '..', 'dist'),
   },
   module: {
@@ -18,9 +20,30 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: {
+                mode: 'local',
+                localIdentName: '[name]_[local]_[hash:5]',
+              },
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
     ],
+  },
+  optimization: {
+    minimizer: [new TerserPlugin()],
   },
   devServer: {
     hot: true,
@@ -28,4 +51,5 @@ module.exports = {
     open: true,
     compress: true,
   },
+  devtool: 'source-map',
 };
